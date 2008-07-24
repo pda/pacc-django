@@ -1,2 +1,3 @@
+*.pyc
 pdawebsite.sqlite3
 sync.sh

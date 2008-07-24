@@ -1,0 +1,71 @@
+<div class="bar"></div>
+
+<div id="here">
+
+	<div id="profile">
+		<h2>Profile</h2>
+		<p>
+			<img alt="Paul Annesley" src="/static/images/paul-annesley.jpg" width="73" height="73" />
+			This is the personal website of
+			<a href="/" class="name" title="Home" rel="me">Paul Annesley</a>,
+			senior developer at
+			<a href="http://99designs.com/">99designs</a>
+			in
+			<a href="http://en.wikipedia.org/wiki/Melbourne"
+				title="Melbourne on Wikipedia">Melbourne, Australia</a>.
+			You can <a href="http://twitter.com/pda" title="pda on Twitter">follow Paul on Twitter</a>.
+		</p>
+	</div>
+
+	<h2>Navigation</h2>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/articles">All Blog Posts</a></li>
+	</ul>
+
+	<h2>Me, Elsewhere</h2>
+	<ul>
+		<li>
+			<a href="https://friendfeed.com/pda" rel="me" title="pda on FriendFeed">FriendFeed</a>
+			<span class="meta">&raquo; pda</span>
+		</li>
+		<li>
+			<a href="http://twitter.com/pda" rel="me" title="pda on Twitter">Twitter</a>
+			<span class="meta">&raquo; pda</span>
+		</li>
+		<li>
+			<a href="http://99designs.com/users/118009" rel="me" title="Paul Annesley on 99designs">99designs</a>
+			<span class="meta">&raquo; Paul Annesley</span>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/in/paulannesley" rel="me" title="paulannesley on LinkedIn">LinkedIn</a>
+			<span class="meta">&raquo; paulannesley</span>
+		</li>
+		<li>
+			<a href="http://del.icio.us/paul.annesley" rel="me" title="paul.annesley on del.icio.us">del.icio.us</a>
+			<span class="meta">&raquo; paul.annesley</span>
+		</li>
+		<li>
+			<a href="http://djangopeople.net/pda/" rel="me" title="pda on Django People">Django People</a>
+			<span class="meta">&raquo; pda</span>
+		</li>
+		<li>
+			<a href="http://flickr.com/photos/paulannesley/" rel="me" title="paulannesley on Flickr">Flickr</a>
+			<span class="meta">&raquo; paulannesley</span>
+		</li>
+	</ul>
+
+	<div id="bookmarks">
+		<h2>Recent Bookmarks</h2>
+		{% with feeds.bookmarks as feed %}
+			{% include 'feed-entry-titles-descriptions.html' %}
+		{% endwith %}
+	</div>
+
+	<h2>People</h2>
+	<ul>
+		<li><a href="http://jamesannesley.com" rel="sibling met">James Annesley</a> &raquo; Maker and purveyor of fine jazz saxophone music in Melbourne, Australia</li>
+	</ul>
+
+</div>
+

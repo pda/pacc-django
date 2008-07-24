@@ -1,0 +1,10 @@
+<ul id="announcements">
+{% for entry in feed.entries %}
+	<li>
+		<a href="{{ entry.link|safe }}">{{ entry.title|safe }}</a>
+		<span class="meta">
+			&raquo; {{ entry.date|date:"j F Y" }}
+		</span>
+	</li>
+{% endfor %}
+</ul>

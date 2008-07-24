@@ -1,0 +1,69 @@
+{% extends 'two-column.html' %}
+
+{% block 'column2' %}
+
+	<div class="bar"></div>
+
+	<div class="singlepage-content">
+
+		<div class="blogpost">
+			<h2 class="title">{{ post.title }}</h2>
+
+			<p class="date">{{ post.timecreated|date:"j F Y" }}</p>
+
+			<div class="content">
+			{{ post.content|safe }}
+			</div>
+		</div>
+
+		{% if hasComments %}
+		<div id="comments">
+			<h3>Comments</h3>
+
+			<p>This post has {{ commentCount }} comment{{ commentCount|pluralize }}.</p>
+
+			<ol>
+			{% for comment in comments %}
+				<li id="comment{{ comment.id }}">
+					<p class="byline">
+						<cite>
+							{% if comment.authorurl %}
+								<a href="{{ comment.authorurl }}">{{ comment.authorname }}</a>
+							{% else %}
+								{{ comment.authorname }}
+							{% endif %}
+						</cite>
+						says:
+					</p>
+					<p class="date">{{ comment.timecreated|date:"j F Y" }}</p>
+
+					<div class="content">
+						{{ comment.content|linebreaks }}
+					</div>
+
+				</li>
+			{% endfor %}
+			</ol>
+		</div>
+		{% endif %}
+
+		{% if post.allowcomments %}
+		<div id="reply">
+
+			<h3>Leave A Comment</h3>
+
+			<form action="{{ commenturl }}" method="POST">
+				{{ form.as_p }}
+				<p class="buttongroup">
+					<input type="submit" class="primary" value="Submit">
+				</p>
+			</form>
+
+		</div>
+		{% else %}
+		<p>Comments on this post are closed.</p>
+		{% endif %}
+
+	</div>
+
+{% endblock %}

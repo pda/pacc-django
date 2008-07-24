@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+<div id="column-container">
+
+	<div id="column1" class="column">
+		<div class="column-content">
+
+			{% block 'column1' %}
+				{% include 'nav-column.html' %}
+			{% endblock %}
+
+		</div>
+
+		<div class="column-footer"></div>
+	</div><!-- #column1 -->
+
+	<div id="column2of2" class="column">
+		<div class="column-content">
+
+			{% block 'column2' %}
+			{% endblock %}
+
+		</div>
+	</div><!-- #column2 -->
+
+</div><!-- #column-container -->
+
+{% endblock %}

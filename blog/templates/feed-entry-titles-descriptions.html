@@ -1,0 +1,12 @@
+<ul>
+{% for entry in feed.entries %}
+	<li>
+		<a href="{{ entry.link|safe }}">{{ entry.title|safe }}</a>
+		{% if entry.description %}
+		<span class="description">
+			&raquo; {{ entry.description|safe }}
+		</span>
+		{% endif %}
+	</li>
+{% endfor %}
+</ul>

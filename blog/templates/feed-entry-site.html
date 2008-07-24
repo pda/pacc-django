@@ -1,0 +1,10 @@
+<ul>
+{% for entry in feed.entries %}
+	<li>
+		<a href="{{ entry.link|safe }}">{{ entry.title|safe }}</a>
+		<span class="meta">
+			&raquo; {{ entry.sitename }}
+		</span>
+	</li>
+{% endfor %}
+</ul>

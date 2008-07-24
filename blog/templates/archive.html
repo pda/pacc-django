@@ -1,0 +1,21 @@
+{% extends 'two-column.html' %}
+
+{% block 'column2' %}
+	<div class="bar"></div>
+	<div id="article-archive">
+
+		<h3>All Blog Posts</h3>
+
+		<ol>
+		{% for post in posts %}
+			<li>
+				<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+				&raquo;
+				<span class="date">{{ post.timecreated|date:"j F Y" }}</span>
+			</li>
+		{% endfor %}
+		</ol>
+
+	</div>
+{% endblock %}
+

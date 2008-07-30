@@ -26,10 +26,17 @@ p a, li a {
 }
 
 a:hover {
-	text-decoration: underline;
 	text-decoration: none;
 	background-color: black;
 	color: white;
+}
+
+.badge {
+	margin-left: 10px;
+}
+
+.badge a {
+	background: none;
 }
 
 #header {

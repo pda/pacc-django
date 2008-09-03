@@ -1,10 +1,13 @@
 import os
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.contrib import admin
 import pdawebsite.blog.views
 
+admin.autodiscover()
+
 urlpatterns = patterns('',
-	(r'^admin/', include('django.contrib.admin.urls')),
+	(r'^admin/(.*)', admin.site.root),
 	(r'^$', pdawebsite.blog.views.frontpage),
 	(r'^articles$', pdawebsite.blog.views.archive),
 	(r'^feed/?$', pdawebsite.blog.views.feed), # legacy wordpress url

@@ -7,7 +7,7 @@ class BlogPost(models.Model):
 	timecreated = models.DateTimeField(auto_now_add=True)
 	timemodified = models.DateTimeField(auto_now=True)
 	title = models.CharField(max_length = 255)
-	slug = models.SlugField(max_length = 255, prepopulate_from = ('title',))
+	slug = models.SlugField(max_length = 255)
 	content = models.TextField()
 	allowcomments = models.BooleanField('Allow Comments')
 	uid = models.CharField("Permanent Unique ID", max_length=255)
@@ -32,9 +32,6 @@ class BlogPost(models.Model):
 
 	def get_unique_id(self):
 		return self.uid
-
-	class Admin:
-		pass
 
 	class Meta:
 		ordering = ('-timecreated', 'title')
@@ -64,9 +61,6 @@ class BlogPostComment(models.Model):
 
 	def get_unique_id(self):
 		return self.get_absolute_url()
-
-	class Admin:
-		pass
 
 	class Meta:
 		ordering = ('-timecreated', )

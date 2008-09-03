@@ -1,4 +1,4 @@
-from django import newforms as forms
+from django import forms
 
 class CommentForm(forms.Form):
 	name = forms.CharField()

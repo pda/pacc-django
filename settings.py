@@ -10,7 +10,7 @@ os.sys.path.append(os.path.join(OUR_ROOT, 'lib'));
 # end
 
 #DEBUG = True
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

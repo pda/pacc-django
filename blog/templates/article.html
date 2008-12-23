@@ -25,6 +25,7 @@
 			<ol>
 			{% for comment in comments %}
 				<li id="comment{{ comment.id }}">
+					<p class="date">{{ comment.timecreated|date:"j F Y" }}</p>
 					<p class="byline">
 						<cite>
 							{% if comment.authorurl %}
@@ -35,7 +36,6 @@
 						</cite>
 						says:
 					</p>
-					<p class="date">{{ comment.timecreated|date:"j F Y" }}</p>
 
 					<div class="content">
 						{{ comment.content|linebreaks }}

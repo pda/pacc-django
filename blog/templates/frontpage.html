@@ -1,4 +1,4 @@
-{% extends 'three-column.html' %}
+{% extends 'two-column.html' %}
 
 {% block 'column1' %}
 	{% include 'nav-column.html' %}
@@ -6,33 +6,6 @@
 
 
 {% block 'column2' %}
-	<div class="bar"></div>
-
-	<div id="announcements">
-		<h2>Announcements</h2>
-		{% with feeds.announcements as feed %}
-			{% include 'feed-entry-announcements.html' %}
-		{% endwith %}
-	</div>
-
-	<div id="authored">
-		<h2>Things I've Written Elsewhere</h2>
-		{% with feeds.authoredelsewhere as feed %}
-			{% include 'feed-entry-titles.html' %}
-		{% endwith %}
-	</div>
-
-	<div id="commented">
-		<h2>Places I've Left Comments</h2>
-		{% with feeds.commented as feed %}
-			{% include 'feed-entry-site.html' %}
-		{% endwith %}
-	</div>
-{% endblock %}
-
-
-{% block 'column3' %}
-	<div class="bar"></div>
 	<div id="recent-posts">
 	{% for post in posts %}
 		<div class="blogpost">

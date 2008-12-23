@@ -142,6 +142,7 @@ samp, code {
 	font-size: 110%;
 	color: #333;
 	overflow: auto;
+	width: 90%;
 }
 
 blockquote {
@@ -174,7 +175,6 @@ div#column2 {
 
 div#column2 .column-content {
 	min-height: 25em;
-	/*background-color: #ddf;*/
 }
 
 div#column2 .singlepage-content {
@@ -198,6 +198,10 @@ div#column2 .singlepage-content {
 #about .list {
 	width: 50%;
 	float: left;
+}
+
+#about #announcements {
+	clear: both;
 }
 
 /* comments */

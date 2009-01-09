@@ -1,5 +1,7 @@
+import re
 from django.utils.feedgenerator import Atom1Feed
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from pdawebsite.blog.models import *
 
 def feed(request):
 

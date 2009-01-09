@@ -1,7 +1,6 @@
 import os
 import feedparser
 import random
-import re
 import urllib
 from forms import CommentForm
 from urlparse import urlparse

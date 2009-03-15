@@ -11,7 +11,7 @@ from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
-from pdawebsite.blog.models import *
+from blog.models import *
 
 def article(request, slug):
 

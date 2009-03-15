@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pdawebsite.blog.models import *
+from blog.models import *
 
 class BlogPostAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}

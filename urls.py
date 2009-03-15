@@ -2,21 +2,21 @@ import os
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
-import pdawebsite.blog.views, pdawebsite.blog.feedviews
+import blog.views, blog.feedviews
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
 	(r'^admin/(.*)', admin.site.root),
-	(r'^$', pdawebsite.blog.views.frontpage),
-	(r'^about$', pdawebsite.blog.views.about),
-	(r'^articles$', pdawebsite.blog.views.archive),
-	(r'^feed/?$', pdawebsite.blog.feedviews.feed), # legacy wordpress url
-	(r'^feed/atom/?$', pdawebsite.blog.feedviews.feed), # legacy wordpress url
-	(r'^articles/feed/?$', pdawebsite.blog.feedviews.feed),
-	(r'^articles/comments/feed$', pdawebsite.blog.feedviews.comment_feed),
-	(r'^articles/\d+/\d+/\d+/(?P<slug>[\w-]+)$', pdawebsite.blog.views.article),
-	(r'^articles/\d+/\d+/\d+/(?P<slug>[\w-]+)/comment$', pdawebsite.blog.views.comment),
+	(r'^$', blog.views.frontpage),
+	(r'^about$', blog.views.about),
+	(r'^articles$', blog.views.archive),
+	(r'^feed/?$', blog.feedviews.feed), # legacy wordpress url
+	(r'^feed/atom/?$', blog.feedviews.feed), # legacy wordpress url
+	(r'^articles/feed/?$', blog.feedviews.feed),
+	(r'^articles/comments/feed$', blog.feedviews.comment_feed),
+	(r'^articles/\d+/\d+/\d+/(?P<slug>[\w-]+)$', blog.views.article),
+	(r'^articles/\d+/\d+/\d+/(?P<slug>[\w-]+)/comment$', blog.views.comment),
 )
 
 # serve statics during development

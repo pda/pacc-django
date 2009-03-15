@@ -1,5 +1,3 @@
-# Django settings for pdawebsite project.
-
 import os
 
 # paul's custom settings
@@ -75,7 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
 )
 
-ROOT_URLCONF = 'pdawebsite.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
 	os.path.join(PROJECT_ROOT, 'blog/templates'),
@@ -87,5 +85,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'pdawebsite.blog',
+    'blog',
 )

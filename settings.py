@@ -3,10 +3,10 @@
 import os
 
 # paul's custom settings
-OUR_ROOT = os.path.dirname(__file__)
+PROJECT_ROOT = os.path.dirname(__file__)
 PRODUCTION = False # enables static routes when False
 
-os.sys.path.append(os.path.join(OUR_ROOT, 'lib'));
+os.sys.path.append(os.path.join(PROJECT_ROOT, 'lib'));
 # end
 
 #DEBUG = True
@@ -20,7 +20,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = os.path.join(OUR_ROOT, 'pdawebsite.sqlite3')
+DATABASE_NAME = os.path.join(PROJECT_ROOT, 'pdawebsite.sqlite3')
 DATABASE_USER = ''
 DATABASE_PASSWORD = ''
 DATABASE_HOST = ''
@@ -78,8 +78,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pdawebsite.urls'
 
 TEMPLATE_DIRS = (
-	os.path.join(OUR_ROOT, 'templates'),
-	os.path.join(OUR_ROOT, 'blog/templates'),
+	os.path.join(PROJECT_ROOT, 'templates'),
+	os.path.join(PROJECT_ROOT, 'blog/templates'),
 )
 
 INSTALLED_APPS = (

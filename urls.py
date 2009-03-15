@@ -22,7 +22,7 @@ urlpatterns = patterns('',
 # serve statics during development
 if not settings.PRODUCTION:
 	urlpatterns += patterns('',
-		(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.OUR_ROOT, 'static')}),
-		(r'^assets/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.OUR_ROOT, 'assets')}),
+		(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'static')}),
+		(r'^assets/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'assets')}),
 	)
 

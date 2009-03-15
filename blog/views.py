@@ -1,7 +1,6 @@
 import os
 import feedparser
 import random
-import urllib
 from forms import CommentForm
 from urlparse import urlparse
 from datetime import datetime
@@ -13,6 +12,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from blog.models import *
 import secrets
+from akismet import Akismet
 
 def article(request, slug):
 
@@ -177,26 +177,12 @@ def __getFeeds(feedinfo):
 	return feeds
 
 def __isCommentSpam(comment):
-
-	# most or all of this should be defined elsewhere.
-	# also, all this akismet stuff should be encapsulated and error handled.
-	# meh.
-	apikey = secrets.AKISMET_API_KEY
-	url_verify = 'http://rest.akismet.com/1.1/verify-key'
-	url_check = 'http://%s.rest.akismet.com/1.1/comment-check' % apikey
-	postdata_verify = urllib.urlencode({'key': apikey, 'blog': 'http://paul.annesley.cc/'}, True)
-
-	if urllib.urlopen(url_verify, postdata_verify).read() == 'valid':
-
-		postdata_comment = urllib.urlencode({
-			'blog': 'paul.annesley.cc',
-			'user_ip': comment.authorip,
-			'user_agent': comment.authoruseragent,
-			'comment_author': comment.authorname,
-			'comment_author_email': comment.authoremail,
-			'comment_author_url': comment.authorurl,
-			'comment_content': comment.content
-		}, True)
-
-		return urllib.urlopen(url_check, postdata_comment).read() != 'false'
-
+	akismet = Akismet('http://paul.annesley.cc/', secrets.AKISMET_API_KEY)
+	return akismet.is_spam(
+		comment.authorip,
+		comment.authoruseragent,
+		comment.authorname,
+		comment.authoremail,
+		comment.authorurl,
+		comment.content
+	);

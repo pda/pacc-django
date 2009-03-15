@@ -78,7 +78,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pdawebsite.urls'
 
 TEMPLATE_DIRS = (
-	os.path.join(PROJECT_ROOT, 'templates'),
 	os.path.join(PROJECT_ROOT, 'blog/templates'),
 )
 

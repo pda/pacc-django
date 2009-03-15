@@ -12,6 +12,7 @@ from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from blog.models import *
+import secrets
 
 def article(request, slug):
 
@@ -180,7 +181,7 @@ def __isCommentSpam(comment):
 	# most or all of this should be defined elsewhere.
 	# also, all this akismet stuff should be encapsulated and error handled.
 	# meh.
-	apikey = '(secret)'
+	apikey = secrets.AKISMET_API_KEY
 	url_verify = 'http://rest.akismet.com/1.1/verify-key'
 	url_check = 'http://%s.rest.akismet.com/1.1/comment-check' % apikey
 	postdata_verify = urllib.urlencode({'key': apikey, 'blog': 'http://paul.annesley.cc/'}, True)

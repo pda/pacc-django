@@ -1,3 +1,4 @@
 *.pyc
 pdawebsite.sqlite3
 sync.sh
+secrets.py
